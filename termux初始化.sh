@@ -16,7 +16,7 @@ git clone https://github.com/KUVBBH/config.git
 
 cp config/.vimrc ./
 
-cp config/termux.properties .termux/termux.properties
+cp config/termux.properties ./.termux/termux.properties
 
 termux-reload-settings
 

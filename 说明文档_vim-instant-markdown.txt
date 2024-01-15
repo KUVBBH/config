@@ -1,0 +1,187 @@
+3. 配置                                       *vim-instant-markdown-配置*
+
+**最小默认配置：**
+
+```vim
+filetype plugin on
+"取消注释以覆盖默认设置：
+"let g:instant_markdown_slow = 1
+"let g:instant_markdown_autostart = 0
+"let g:instant_markdown_open_to_the_world = 1
+"let g:instant_markdown_allow_unsafe_content = 1
+"let g:instant_markdown_allow_external_content = 0
+"let g:instant_markdown_mathjax = 1
+"let g:instant_markdown_mermaid = 1
+"let g:instant_markdown_logfile = '/tmp/instant_markdown.log'
+"let g:instant_markdown_autoscroll = 0
+"let g:instant_markdown_port = 8888
+"let g:instant_markdown_python = 1
+```
+------------------------------------------------------------------------------
+**g:instant_markdown_slow**                                *g:instant_markdown_slow*
+
+默认情况下，vim-instant-markdown会实时更新显示内容。如果实时更新对您的系统资源占用过大，您可以在加载插件前指定以下设置：
+
+```vim
+let g:instant_markdown_slow = 1
+```
+
+例如，您可以在`~/.vimrc`中放置此行。这样一来，vim-instant-markdown将在以下事件发生时才刷新预览：
+
+*   长时间未按键
+*   离开插入模式一段时间后
+*   保存正在编辑的文件
+
+------------------------------------------------------------------------------
+**g:instant_markdown_autostart**                       *g:instant_markdown_autostart*
+**手动启动**                                       *:InstantMarkdownPreview*
+**手动停止**                                        *:InstantMarkdownStop*
+
+`g:instant_markdown_autostart`变量控制是否自动启动即时预览功能。如果将其设为0，则不会在打开支持的Markdown文件时自动启动预览。您可以使用`:InstantMarkdownPreview`命令手动开启预览，而`:InstantMarkdownStop`命令则用于停止预览。
+默认情况下，vim-instant-markdown会在您打开Markdown文件时自动启动预览窗口。如果您希望手动控制这一行为，可以在您的.vimrc中指定以下设置：
+
+```vim
+let g:instant_markdown_autostart = 0
+```
+
+这样就可以禁用自动启动预览功能。但您始终可以通过`:InstantMarkdownPreview`命令来手动开启预览，通过`:InstantMarkdownStop`命令停止预览。
+
+------------------------------------------------------------------------------
+**g:instant_markdown_open_to_the_world**       *g:instant_markdown_open_to_the_world*
+
+默认情况下，服务器仅监听本地主机。若要使服务器在您的网络中的其他设备上可用，请编辑您的.vimrc并添加以下设置：
+
+```vim
+let g:instant_markdown_open_to_the_world = 1
+```
+
+请注意，仅在信任的网络环境中使用此设置！
+
+------------------------------------------------------------------------------
+**g:instant_markdown_allow_unsafe_content** *g:instant_markdown_allow_unsafe_content*
+
+默认情况下，脚本是被阻止运行的。如果要允许脚本执行，请在您的.vimrc中添加以下配置：
+
+```vim
+let g:instant_markdown_allow_unsafe_content = 1
+```
+
+启用此选项将允许运行可能包含潜在安全风险的脚本内容。
+G:INSTANT_MARKDOWN_ALLOW_EXTERNAL_CONTENT *g:instant_markdown_allow_external_content*
+
+默认情况下，允许外部资源（如图片、样式表、框架和插件）加载。若要阻止此类内容，请编辑您的 .vimrc 文件并添加以下设置：
+>
+    let g:instant_markdown_allow_external_content = 0
+<
+
+------------------------------------------------------------------------------
+G:INSTANT_MARKDOWN_LOGFILE                           *g:instant_markdown_logfile*
+
+为方便故障排查，Vim 与服务器之间的启动过程及 curl 通信可以记录到一个文件中。
+>
+    let g:instant_markdown_logfile = '/tmp/instant_markdown.log'
+<
+
+------------------------------------------------------------------------------
+G:INSTANT_MARKDOWN_MATHJAX                           *g:instant_markdown_mathjax*
+
+默认情况下，嵌入在 Markdown 中的 TeX 代码不会被渲染。启用此选项后将使用 MathJax，并以特定方式启动 node 服务器。
+>
+    let g:instant_markdown_mathjax = 1
+<
+该选项从 `instant-markdown-d==0.2.0` 版本开始提供
+
+------------------------------------------------------------------------------
+G:INSTANT_MARKDOWN_MERMAID                           *g:instant_markdown_mermaid*
+
+默认情况下，Mermaid 图表功能是禁用的。启用此选项后将使用 markdown-it-textual-uml，并以特定方式启动 node 服务器。
+>
+    let g:instant_markdown_mermaid = 1
+<
+该选项从 `instant-markdown-d==0.2.0` 版本开始提供
+
+------------------------------------------------------------------------------
+G:INSTANT_MARKDOWN_BROWSER                        *g:instant_markdown_browser*
+
+默认情况下，`instant-markdown-d` 根据操作系统自动检测浏览器。您也可以设置自定义浏览器，例如：
+>
+    let g:instant_markdown_browser = "firefox --new-window"
+<
+该选项从 `instant-markdown-d==0.2.0` 版本开始提供
+G:INSTANT_MARKDOWN_PORT                             *g:instant_markdown_port*
+
+选择一个自定义端口，而非默认的 `8090` 端口。
+>
+    let g:instant_markdown_port = 8888
+<
+该选项从 `instant-markdown-d==0.2.0` 版本开始提供
+
+------------------------------------------------------------------------------
+G:INSTANT_MARKDOWN_AUTOSCROLL                 *g:instant_markdown_autoscroll*
+
+默认情况下，在版本 `instant-markdown-d>=0.2.0` 中，实时预览会自动滚动到光标所在位置。要禁用此行为，请编辑您的 .vimrc 文件并添加以下设置：
+>
+    let g:instant_markdown_autoscroll = 0
+<
+该选项从 `instant-markdown-d==0.2.0` 版本开始提供
+
+------------------------------------------------------------------------------
+G:INSTANT_MARKDOWN_THEME                            *g:instant_markdown_theme*
+
+默认情况下，将激活 `light` 主题。同时也有一个 `dark` 主题可供选择，并且可以为 instant-markdown-d 贡献更多主题。若要默认启用 `dark` 主题，请在 .vimrc 文件中添加如下设置：
+>
+    let g:instant_markdown_theme = 'dark'
+<
+该选项从 `instant-markdown-d==0.3.0` 版本开始提供
+
+--------------------------------------------------------------------------------
+4. 技巧与提示                          *vim-instant-markdown-tips-and-tricks*
+
+- 自动在特定路径下启动 vim-instant-markdown，例如针对 ~/src/someproject 下的所有 Markdown 文件
+
+>
+    let g:instant_markdown_autostart = 0
+    augroup InstantMarkdownGroup
+        au! BufRead,BufNewFile,BufEnter ~/src/someproject/*.md let g:instant_markdown_autostart=1
+    augroup END
+<
+
+vim:tw=82:ft=help （注：这一行是 Vim 帮助文档格式的元信息，表示文本宽度为82，文件类型为帮助文档）
+
+
+" 是否使用慢速模式，默认为 0（关闭），设为 1 则开启。
+let g:instant_markdown_slow = 1
+
+" 是否在 Vim 启动时自动启动 Markdown 实时预览，默认为 0（不自动启动），设为 1 则自动启动。
+let g:instant_markdown_autostart = 1
+
+" 是否允许任何网络客户端访问预览服务器，默认为 0（不允许）。
+instant_markdown_open_to_the_world = 0 
+
+
+" 是否允许加载可能不安全的外部内容，默认为 0（不允许）。
+let g:instant_markdown_allow_unsafe_content = 0
+
+
+" 是否启用 MathJax 支持 LaTeX 公式渲染，默认为 1（启用）。
+let g:instant_markdown_mathjax = 0
+
+"是否启用 Mermaid.js 支持流程图和序列图，默认为 1（启用）。
+let g:instant_markdown_mermaid = 1
+
+
+" 设置插件日志文件路径，默认为 `/tmp/instant_markdown.log`。
+
+" let g:instant_markdown_logfile
+
+" 是否启用预览窗口跟随编辑窗口自动滚动，默认为 0（关闭）。
+let g:instant_markdown_autoscroll = 1
+
+" 设置实时预览服务器监听的端口号，默认为 8888。
+" let g:instant_markdown_port
+
+" 是否使用 Python 版本的服务器，默认为 1（使用）。
+" let g:instant_markdown_python
+
+" 设置预览界面的主题风格，默认为 `'dark'`（暗色主题）
+" let g:instant_markdown_theme

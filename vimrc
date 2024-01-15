@@ -131,6 +131,7 @@ Plug 'scrooloose/nerdtree' "文件目录
 Plug 'mbbill/undotree' "undotree
 Plug 'yianwillis/vimcdoc' "中文文档
 Plug 'tell-k/vim-autopep8' "python代码格式化
+Plug 'instant-markdown/vim-instant-markdown', {'for': 'markdown', 'do': 'yarn install'} "MarkDown预览
 call plug#end()
 
 "插件下载，需要先安装git
@@ -140,3 +141,7 @@ call plug#end()
 "需要先安装Python扩展包<pip install autopep8>
 "vim执行<:Autopep8>命令格式化代码
 
+
+" vim-instant-markdown
+" pkg install nodejs,yarn
+" pip install --user smdv

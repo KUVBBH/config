@@ -247,7 +247,7 @@ Plug 'scrooloose/nerdtree' "文件目录
 Plug 'mbbill/undotree' "undotree
 Plug 'yianwillis/vimcdoc' "中文文档
 Plug 'tell-k/vim-autopep8' "python代码格式化
-Plug 'instant-markdown/vim-instant-markdown', {'for': 'markdown', 'do': 'yarn install'} "MarkDown预览
+Plug 'instant-markdown/vim-instant-markdown', {'for': ['markdown', 'vim-plug'], 'do': 'yarn install'} "MarkDown预览
 " Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install','for' :['markdown', 'vim-plug']}
 
 call plug#end()

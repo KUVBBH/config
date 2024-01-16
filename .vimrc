@@ -1,37 +1,110 @@
-set nocompatible "关闭兼容模式
-let mapleader=" " "设置leader键,主键
+" 关闭兼容模式
+set nocompatible
+
+" 设置leader键,主键
+let mapleader=" "
+
+" 文件编码
 set enc=utf-8
-syntax on "代码高亮
-set number "行号
-set norelativenumber "不显示当前行号
-set cursorline "当前行突出显示
-"set cursorline cursorcolumn "突出显示行和累列
-set wrap "自动换行
-set showcmd "显示当前输入
-set wildmenu "菜单命令补全
-set hlsearch "搜索高亮
-set incsearch "搜索中高亮
+
+" 代码高亮
+syntax on
+
+" 左侧显示行号
+set number
+
+" 相对行号显示
+set relativenumber
+
+" 突出显示当前行
+set cursorline
+
+" 突出显示当前列
+" set cursorcolumn
+
+" 文本自动换行
+set wrap
+
+" 显示正在键入的命令或者动作
+set showcmd
+
+" 菜单命令补全
+set wildmenu
+
+" 搜索高亮
+set hlsearch
+
+" 搜索结果即时显示
+set incsearch
+
+" 清除搜索高亮
 exec "nohlsearch"
-set noignorecase "搜索区分大小写
-set nosmartcase "搜索智能区分大小写
-set splitright "有分屏
-set splitbelow "上分屏
-set tabstop=4 "制表符长度
-set autoindent "自动缩进
-set softtabstop=4 "TAB键的行为
-set noexpandtab "用空格代替制表符
-set shiftwidth=4 "缩进或移动空格数
-set smarttab "在行和段开始处使用制表符
-set smartindent "智能缩进
-set autoindent "智能缩进
-set cindent "智能缩进
-"set nosplitright "左右分屏光标位置
+
+" 搜索区分大小写
+set noignorecase
+
+" 搜索智能区分大小写
+set nosmartcase
+
+" 分屏
+" set splitright
+" set splitbelow
+
+" 制表符长度
+set tabstop=4
+
+" 自动缩进
+set autoindent
+
+" Tap和Backspace的行为
+set softtabstop=4 
+
+" 用空格代替制表符
+set expandtab
+
+" 自动缩进和宽度
+set shiftwidth=4
+
+" 自动Tab
+set smarttab
+
+" 智能缩进
+set smartindent
+
+" 智能缩进，联系上文
+set autoindent
+
+" C,C++的智能缩进
+set cindent
+
+"开启插件
+filetype plugin indent on
 
 
 
 
 " ===
-" ===MarkDown for vim-instant-markdown===
+" ===vim-table-mode
+" ===
+function! s:isAtStartOfLine(mapping)
+	let text_before_cursor = getline('.')[0 : col('.')-1]
+	let mapping_pattern = '\V' . escape(a:mapping, '\')
+	let comment_pattern = '\V' . escape(substitute(&l:commentstring, '%s.*$', '', ''), '\')
+	return (text_before_cursor =~? '^' . ('\v(' . comment_pattern . '\v)?') . '\s*\v' . mapping_pattern . '\v$')
+endfunction
+
+inoreabbrev <expr> <bar><bar>
+    \ <SID>isAtStartOfLine('\|\|') ?
+	\ '<c-o>:TableModeEnable<cr><bar><space><bar><left><left>' : '<bar><bar>'
+inoreabbrev <expr> __
+	\ <SID>isAtStartOfLine('__') ?
+	\ '<c-o>:silent! TableModeDisable<cr>' : '__'
+
+
+
+
+" ===
+" ===MarkDown for vim-instant-markdown
 " ===
 
 " 是否使用慢速模式，默认为 0（关闭），设为 1 则开启。
@@ -46,7 +119,6 @@ let g:instant_markdown_mathjax = 1
 "是否启用 Mermaid.js 支持流程图和序列图，设为 1（启用）。
 let g:instant_markdown_mermaid = 0
 
-
 " 是否启用预览窗口跟随编辑窗口自动滚动，设为 0（关闭）。
 let g:instant_markdown_autoscroll = 1
 
@@ -54,8 +126,9 @@ let g:instant_markdown_autoscroll = 1
 
 
 "" ===
-"" ===Markdown Preview for (Neo)vim===
+"" ===Markdown Preview for (Neo)vim
 "" ===
+
 "" 是否自动启动 1自动启动
 "let g:mkdp_auto_start = 1
 "
@@ -138,6 +211,11 @@ let g:instant_markdown_autoscroll = 1
 
 
 
+
+" ===
+" ===markdown按键映射
+" ===
+
 autocmd Filetype markdown inoremap `< <Esc>/<++><CR>:nohlsearch<CR>c4l
 
 autocmd Filetype markdown inoremap `b **** <++><Esc>F*hi
@@ -170,15 +248,15 @@ autocmd Filetype markdown inoremap `_ ___<Enter><Enter>
 
 autocmd Filetype markdown inoremap `l --------<Enter>
 
+autocmd Filetype markdown inoremap `i <++>
+
 
 
 
 " ===
+" ===undofile文件修改历史记录
 " ===
-" ===
-filetype plugin indent on "插件
 
-" undofile文件修改历史记录
 if has("persistent_undo")
 	let target_path = expand('~/.undodir')
 	if !isdirectory(target_path)
@@ -188,10 +266,17 @@ if has("persistent_undo")
 	set undofile
 endif
 
-" 光标状态
-let &t_SI.="\e[5 q" "SI = INSERT mode
+
+
+
+" ===
+" ===光标状态
+" ===
+
+let &t_SI.="\e[6 q" "SI = INSERT mode
 let &t_SR.="\e[4 q" "SR = REPLACE mode
-let &t_EI.="\e[1 q" "EI = NORMAL mode (ELSE)
+let &t_EI.="\e[2 q" "EI = NORMAL mode (ELSE)
+
 " 1 -> blinking block  闪烁的方块
 " 2 -> solid block  不闪烁的方块
 " 3 -> blinking underscore  闪烁的下划线
@@ -199,7 +284,14 @@ let &t_EI.="\e[1 q" "EI = NORMAL mode (ELSE)
 " 5 -> blinking vertical bar  闪烁的竖线
 " 6 -> solid vertical bar  不闪烁的竖线
 
-" @按键映射,执行Python程序
+
+
+
+" ===
+" ===按键映射
+" ===
+
+" 按键映射,执行Python程序
 map <LEADER>r :call CompileRunPy()<CR>
 func! CompileRunPy()
 	exec "w"
@@ -210,19 +302,18 @@ func! CompileRunPy()
 	endif
 endfunc
 
-" @按键映射,Termux获取粘贴板
-map <LEADER>p :read !termux-clipboard-get<CR>
+" 按键映射,Termux获取粘贴板
+" map <LEADER>p :read !termux-clipboard-get<CR>
 
-" @按键映射,保存并退出
+" 按键映射,保存并退出
 map <LEADER>q :wq<CR>
 
-" @按键映射,打开NERDTree
+" 按键映射,打开NERDTree
 map <LEADER>n :NERDTreeToggle<CR>
 
 " 按键映射,打开UndotreeToggle
 map <LEADER>u :UndotreeToggle<CR>
 
-" @按键映射,标签页快捷键
 " 上一个标签
 map <LEADER><left> :tabp<CR>
 " 下一个标签
@@ -231,26 +322,65 @@ map <LEADER><right> :tabn<CR>
 map <LEADER><up> :tabr<CR>
 " 最后一个标签
 map <LEADER><down> :tablast<CR>
-	
-let g:airline_powerline_fonts					= 1 " 使用 powerline 打过补丁的字体
-let g:airline#extensions#tabline#enabled		= 1 " 开启 tabline
-let g:airline#extensions#tabline#buffer_nr_show = 1 " 显示 buffer 编号
-let g:airline#extensions#ale#enabled			= 1 " enable ale integration
+
+
+
+
+" ===
+" ===vim-airline
+" ===
+
+" 使用powerline 打过补丁的字体
+let g:airline_powerline_fonts = 1
+
+" 开启状态栏
+let g:airline#extensions#tabline#enabled = 1
+
+" 显示 buffer 编
+let g:airline#extensions#tabline#buffer_nr_show = 1
+
+" 启用 ALE（Asynchronous Lint Engine）集成。ALE 是一个 Vim插件，用于异步语法检查和错误提示。与 Airline集成后，可以在状态栏上实时展示代码的 lint 结果或错误信息。
+let g:airline#extensions#ale#enabled = 1
+
+
+
 
 " ===
 " ===安装插件
 " ===
 call plug#begin()
-Plug 'vim-airline/vim-airline' "状态栏
-" Plug 'jiangmiao/auto-pairs' "自动补全括号
-Plug 'scrooloose/nerdtree' "文件目录
-Plug 'mbbill/undotree' "undotree
-Plug 'yianwillis/vimcdoc' "中文文档
-Plug 'tell-k/vim-autopep8' "python代码格式化
-Plug 'instant-markdown/vim-instant-markdown', {'for': ['markdown', 'vim-plug'], 'do': 'yarn install'} "MarkDown预览
+
+" 状态栏
+Plug 'vim-airline/vim-airline'
+
+" 自动补全括号
+" Plug 'jiangmiao/auto-pairs' 
+
+" 文件目录
+Plug 'scrooloose/nerdtree'
+
+" undotree
+Plug 'mbbill/undotree'
+
+" 中文文档
+Plug 'yianwillis/vimcdoc'
+
+" python代码格式化
+" Plug 'tell-k/vim-autopep8'
+
+" MarkDown预览
+Plug 'instant-markdown/vim-instant-markdown', {'for': ['markdown', 'vim-plug'], 'do': 'yarn install'} 
+
+" MarkDown预览
 " Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install','for' :['markdown', 'vim-plug']}
 
+" 制表插件
+Plug 'dhruvasagar/vim-table-mode',{'for': ['markdown', 'vim-plug']}
+
 call plug#end()
+
+
+
 
 " 插件下载，需要先安装git
 " curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -258,7 +388,6 @@ call plug#end()
 " autopep8
 " 需要先安装Python扩展包<pip install autopep8>
 " vim执行<:Autopep8>命令格式化代码
-
 
 " vim-instant-markdown
 " pkg install nodejs,yarn

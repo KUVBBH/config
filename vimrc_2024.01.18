@@ -82,12 +82,210 @@ filetype plugin indent on
 
 
 
+" ===
+" ===安装插件
+" ===
+call plug#begin()
+
+" 状态栏
+Plug 'vim-airline/vim-airline'
+
+" 自动补全括号
+" Plug 'jiangmiao/auto-pairs' 
+
+" 文件目录
+Plug 'scrooloose/nerdtree'
+
+" undotree
+Plug 'mbbill/undotree'
+
+" 中文文档
+Plug 'yianwillis/vimcdoc'
+
+" python代码格式化
+" Plug 'tell-k/vim-autopep8'
+
+" MarkDown预览
+Plug 'instant-markdown/vim-instant-markdown', {'for': ['markdown', 'vim-plug'], 'do': 'yarn install'} 
+
+" MarkDown预览
+" Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install','for' :['markdown', 'vim-plug']}
+
+" 制表插件
+Plug 'dhruvasagar/vim-table-mode',{'for': ['markdown', 'vim-plug']}
+
+" python代码补全
+Plug 'davidhalter/jedi-vim',{'for': ['python', 'vim-plug']}
+
+" 按键提示
+Plug 'liuchengxu/vim-which-key'
+
+call plug#end()
+
+" 插件下载，需要先安装git
+" curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+" autopep8
+" 需要先安装Python扩展包<pip install autopep8>
+" vim执行<:Autopep8>命令格式化代码
+
+" vim-instant-markdown
+" pkg install nodejs,yarn
+" https://github.com/instant-markdown/vim-instant-markdown
+
+" davidhalter/jedi-vim
+" pkg install vim-python
+" pip install jedi
+
+
+
 
 " ===
 " ===自定义命令
 " ===
 
 command! -nargs=0 Black :w | !python -m black %
+
+
+
+
+" ===
+" ===vimrc按键映射
+" ===
+
+function! VimrcMappings()
+    inoremap <buffer> `< <Esc>/<++><CR>:nohlsearch<CR>c4l
+    inoremap <buffer> `` \ '<++>' : '<++>' ,<Enter>
+endfunction
+
+autocmd BufRead,BufNewFile ~/.vimrc call VimrcMappings()
+
+
+
+
+" ===
+" ===vim-which-key
+" ===
+
+let g:which_key_map = {}
+
+let g:which_key_map['Y'] = {
+    \ 'name' : '快捷键-移动' ,
+    \ 'k,j,h,l' : '上,下,左,右' ,
+    \ 'w,W' : '下一个单词的开头' ,
+    \ 'e,E' : '下一个单词的末尾' ,
+    \ 'b,B' : '上一个单词的开头' ,
+    \ 'ge' : '上一个单词的末尾' ,
+    \ '0' : '行首' ,
+    \ '$' : '行尾' ,
+    \ '^' : '第一个非空字符' ,
+    \ '2|' : '移动到当前行第二列' ,
+    \ 'fx' : '移动到当前行的第一个字符x上' ,
+    \ '3fx' : '移动到当前行的第三个字符x上' ,
+    \ 'tx' : '移动到目标字符x的前一个字符上' ,
+    \ '; ,' : '正向,逆向重复f指令' ,
+    \ '%' : '符号间的移动' ,
+    \ '(' : '移到当前句的开头' ,
+    \ ')' : '移到下一句的开头' ,
+    \ '{' : '移到当前段的开头' ,
+    \ '}' : '移到下一段的开头' ,
+    \ '[[' : '移到这一节的开头' ,
+    \ ']]' : '移到下一节的开头' ,
+    \ '``' : '回到之前的位置' ,
+    \ 'xG,xgg' : '移动到指定的第x行' ,
+    \ 'gg' : '移动到文件开头' ,
+    \ 'G' : '移动到文件末尾' ,
+    \ 'x%' : '移动到文件x%处' ,
+    \ 'H' : '移动到当前屏幕开头' ,
+    \ 'M' : '移动到当前屏幕中间' ,
+    \ 'L' : '移动到当前屏幕末尾' ,
+    \ 'ctrl+G,ctrl+g' : '查看当前的位置状态' ,
+    \ 'ctrl+u,ctrl+d' : '屏幕滚动-半屏' ,
+    \ 'ctrl+f,ctrl+b' : '屏幕滚动-全屏' ,
+    \ 'zz' : '将光标置于屏幕的中间' ,
+    \ 'zt' : '将光标置于屏幕的顶部' ,
+    \ 'zb' : '将光标置于屏幕的底部' ,
+    \ 'mx,my,mz' : '设置跳转标记x,y,z' ,
+    \ '`' : '跳转标记' ,
+    \ }
+
+let g:which_key_map['C'] = {
+    \ 'name' : '快捷键-插入' ,
+    \ 'i,a' : '当前光标前插入,后插入' ,
+    \ 'I,A' : '当前行前插入,后插入' ,
+    \ 'o,O' : '下一行,上一行插入' ,
+    \ 's' : '删除当前光标处的字符并进入到插入模式' ,
+    \ 'S' : '删除当前行并进入到插入模式' ,
+    \ 'cw' : '删除从光标处到单词结尾的文本并进入到插入模式' ,
+    \ 'cb' : '删除从光标处到单词开头的文本并进入到插入模式' ,
+    \ 'cc' : '删除一整行并进入到插入模式' ,
+    \ }
+
+let g:which_key_map['S'] = {
+    \ 'name' : '快捷键-删除' ,
+    \ 'x,X' : '删除当前光标下,光标前的字符' ,
+    \ 'dw' : '删除一个单词' ,
+    \ 'daw' : '无论光标在什么位置，删除光标所在的整个单词' ,  
+    \ 'diw' : '删除整个单词文本，但是保留空格字符不删除' ,  
+    \ 'd2w' : '删除从当前光标开始处的2个单词' ,  
+    \ 'd$' : '删除至行尾' ,  
+    \ 'd0' : '删除至行首' ,  
+    \ 'dd' : '删除行' ,  
+    \ 'dgg' : '删除至文本开头' ,  
+    \ 'dG' : '删除至文本结束' , 
+    \ }
+
+let g:which_key_map['Z'] = {
+    \ 'name' : '快捷键-折叠' ,
+    \ 'zf200G' : '将光标和200行之间的代码折叠起来' ,
+    \ 'za' : '打开和关闭折叠' ,
+    \ 'zr,zm' : '按层打开,关闭折叠' ,
+    \ 'zR,zM' : '打开,关闭所有的折叠' ,
+    \ 'zj' : '跳转到下一个折叠处' ,
+    \ 'zk' : '跳转到上一个折叠处' ,
+    \ 'zd,zD' : '删除光标下的折叠,所有折叠' ,
+    \ 'zE' : '删除所有的折叠标签' ,
+    \ }
+
+
+let g:which_key_map['Q'] = {
+    \ 'name' : '宏' ,
+    \ '1.       qa' : '开始录制宏，并且命名为a' ,
+    \ '2.        q' : '结束录制' ,
+    \ '5.   :reg a' : '查看宏a的内容' ,
+    \ '3.       @a' : '执行宏' ,
+    \ '4.      5@a' : '执行5次' ,
+    \ }
+
+let g:which_key_map['H'] = {
+    \ 'name' : '快捷键-复制,替换,撤销,查找,其它' ,
+    \ 'u' : '撤销-撤销' ,
+    \ 'J' : '行合并' ,  
+    \ 'y' : '复制-复制' ,  
+    \ 'yw' : '复制-复制当前单词' ,
+    \ 'yy' : '复制-复制行' ,
+    \ '~' : '替换-修改光标下字符的大小写' ,
+    \ 'r' : '替换-替换当前光标下的字符' ,
+    \ 'R' : '替换-替换模式' ,
+    \ 'xp' : '替换-交换光标和下一个字符' ,
+    \ 'Ctrl+r' : '撤销-将原来的插销重做一遍' ,
+    \ '/,?' : '查找-正向查找,反向查找' ,
+    \ }
+
+
+
+
+" ===
+" ===vim-which-key 按键映射
+" ===
+
+" nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
+" nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
+" let g:mapleader = "\<Space>"
+
+call which_key#register('<Space>', "g:which_key_map")
+
+nnoremap <silent> <leader> :WhichKey '<Leader>'<CR>
 
 
 
@@ -442,61 +640,3 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 
 " 启用 ALE（Asynchronous Lint Engine）集成。ALE 是一个 Vim插件，用于异步语法检查和错误提示。与 Airline集成后，可以在状态栏上实时展示代码的 lint 结果或错误信息。
 let g:airline#extensions#ale#enabled = 1
-
-
-
-
-" ===
-" ===安装插件
-" ===
-call plug#begin()
-
-" 状态栏
-Plug 'vim-airline/vim-airline'
-
-" 自动补全括号
-" Plug 'jiangmiao/auto-pairs' 
-
-" 文件目录
-Plug 'scrooloose/nerdtree'
-
-" undotree
-Plug 'mbbill/undotree'
-
-" 中文文档
-Plug 'yianwillis/vimcdoc'
-
-" python代码格式化
-" Plug 'tell-k/vim-autopep8'
-
-" MarkDown预览
-Plug 'instant-markdown/vim-instant-markdown', {'for': ['markdown', 'vim-plug'], 'do': 'yarn install'} 
-
-" MarkDown预览
-" Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install','for' :['markdown', 'vim-plug']}
-
-" 制表插件
-Plug 'dhruvasagar/vim-table-mode',{'for': ['markdown', 'vim-plug']}
-
-" python代码补全
-Plug 'davidhalter/jedi-vim',{'for': ['python', 'vim-plug']}
-
-call plug#end()
-
-
-
-
-" 插件下载，需要先安装git
-" curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-" autopep8
-" 需要先安装Python扩展包<pip install autopep8>
-" vim执行<:Autopep8>命令格式化代码
-
-" vim-instant-markdown
-" pkg install nodejs,yarn
-" https://github.com/instant-markdown/vim-instant-markdown
-
-" davidhalter/jedi-vim
-" pkg install vim-python
-" pip install jedi

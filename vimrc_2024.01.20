@@ -315,19 +315,28 @@ let g:which_key_map[1]['Q'] = {
     \ '4.      5@a' : '执行5次' ,
     \ }
 
+let g:which_key_map[1]['C'] = {
+    \ 'name' : '替换插入' ,
+    \ '~' : '修改光标下字符的大小写' ,
+    \ 'r' : '替换当前光标下的字符' ,
+    \ 'R' : '替换模式' ,
+    \ 'xp' : '交换光标和下一个字符' ,
+    \ 'c4l' : '删除当前光标向右四个字符并进入插入模式' ,
+    \ 'ciw' : '删除当前词并进入插入模式' ,
+    \ 'c$,C' : '删除当前光标至行尾并进入插入模式' ,
+    \ }
+
 let g:which_key_map[1]['O'] = {
-    \ 'name' : '复制,替换,撤销,查找,其它' ,
+    \ 'name' : '复制,撤销,查找,其它' ,
     \ 'u' : '撤销-撤销' ,
     \ 'J' : '行合并' ,  
     \ 'y' : '复制-复制' ,  
     \ 'yw' : '复制-复制当前单词' ,
     \ 'yy' : '复制-复制行' ,
-    \ '~' : '替换-修改光标下字符的大小写' ,
-    \ 'r' : '替换-替换当前光标下的字符' ,
-    \ 'R' : '替换-替换模式' ,
-    \ 'xp' : '替换-交换光标和下一个字符' ,
     \ 'Ctrl+r' : '撤销-将原来的插销重做一遍' ,
     \ '/,?' : '查找-正向查找,反向查找' ,
+    \ 'Ctrl+a' : '当前光标下数字+1' ,
+    \ 'Ctrl+x' : '当前光标下数字-1' ,
     \ }
 
 autocmd FileType markdown let g:which_key_map['3'] = {
@@ -653,7 +662,7 @@ autocmd Filetype markdown inoremap `= ===<Enter><Enter>
 
 autocmd Filetype markdown inoremap `l --------<Enter>
 
-autocmd Filetype markdown inoremap `i \|<++>
+autocmd Filetype markdown inoremap `i <++>
 
 
 

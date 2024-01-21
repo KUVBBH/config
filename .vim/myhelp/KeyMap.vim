@@ -1,5 +1,8 @@
 source ~/.vim/myhelp/0.vim
 source ~/.vim/myhelp/1.vim
+source ~/.vim/myhelp/2.vim
+source ~/.vim/myhelp/3.vim
+
 " 按键等待超时ms
 set timeoutlen=1000
 
@@ -18,9 +21,11 @@ let g:which_key_ignore_outside_mappings = 1
 let g:which_key_map = {}
 
 let g:which_key_map[1] = {
-    \ 'name' : '快捷指令' ,
+    \ 'name' : 'VIM操作指南' ,
     \ '0' : g:help_0 ,
     \ '1' : g:help_1 ,
+    \ '2' : g:help_2 ,
+    \ '3' : g:help_3 ,
     \ }
 
 
@@ -28,10 +33,10 @@ let g:which_key_map[1] = {
 
 
 
-
-let g:which_key_map[2] = {
-    \ 'name' : '命 令 行' ,
-    \ }
+"
+" let g:which_key_map[2] = {
+"    \ 'name' : '命 令 行' ,
+"    \ }
 
 
 

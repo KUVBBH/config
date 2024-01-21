@@ -150,6 +150,7 @@ call plug#end()
 " ===自定义命令
 " ===
 
+" python black
 command! -nargs=0 Black :w | !python -m black %
 
 
@@ -160,8 +161,9 @@ command! -nargs=0 Black :w | !python -m black %
 " ===
 autocmd FileType vim inoremap <buffer> `< <Esc>/<++><CR>:nohlsearch<CR>c4l
 
-autocmd FileType vim inoremap <buffer> `` '<++>' : '<++>' ,<CR><Esc>
+autocmd FileType vim inoremap <buffer> `` <Esc>j08la
 
+autocmd FileType vim inoremap <buffer> `_ <Esc>k08la
 
 
 
@@ -170,6 +172,7 @@ autocmd FileType vim inoremap <buffer> `` '<++>' : '<++>' ,<CR><Esc>
 " ===vim-which-key
 " ===
 source ~/.vim/myhelp/KeyMap.vim
+
 
 
 
@@ -497,15 +500,6 @@ map <LEADER>n :NERDTreeToggle<CR>
 
 " 按键映射,打开UndotreeToggle
 map <LEADER>u :UndotreeToggle<CR>
-
-" 上一个标签
-map <LEADER><left> :tabp<CR>
-" 下一个标签
-map <LEADER><right> :tabn<CR>
-" 第一个标签
-map <LEADER><up> :tabr<CR>
-" 最后一个标签
-map <LEADER><down> :tablast<CR>
 
 
 

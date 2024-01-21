@@ -36,7 +36,7 @@ let g:help_3 = {
     \ 'D4             :tabclose #' : '关闭最近访问的标签页' ,
     \ 'D5                   gt,gT' : '下个,上个标签页' ,
     \ 'D6               {count}gt' : '转到第 {count} 个标签页' ,
-    \ 'D7             :tabN,:tabp' : '下,上一个标签页' ,
+    \ 'D7             :tabn,:tabp' : '下,上一个标签页' ,
     \ 'D8                   :tabs' : '列出标签页和它们包含的窗口' ,
     \ 'D9           :tabnew 1.txt' : '在新的标签页编辑1.txt' ,
     \ }

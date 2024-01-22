@@ -35,29 +35,21 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 #### git配置文件
 
 ```sh
-git clone https://github.com/KUVBBH/config.git ~
+cd ~ && git clone https://github.com/KUVBBH/config.git
 ```
 
-#### VIM配置文件
+#### VIM配置文件,Termux键盘设置
 
 ```sh
-cd ~
-
-cp -r ~/config/.vim/myhelp ~/.vim
-
-cp ~/config/vimrc ~/.vim
-```
-
-#### Termux键盘自定义配置文件
-
-```sh
-cp -r ~/config/.termux ~
+cp -r ~/config/.vim/myhelp ~/.vim && cp ~/config/.vim/vimrc ~/.vim && cp -r ~/config/.termux ~
 ```
 
 #### 安装一些Python包
 
 ```sh
 pkg install python-numpy python-pillow opencv-python -y
+
+pip install black jedi
 ```
 
 

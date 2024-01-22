@@ -3,6 +3,10 @@ source ~/.vim/myhelp/1.vim
 source ~/.vim/myhelp/2.vim
 source ~/.vim/myhelp/3.vim
 source ~/.vim/myhelp/4.vim
+source ~/.vim/myhelp/5.vim
+source ~/.vim/myhelp/6.vim
+source ~/.vim/myhelp/7.vim
+source ~/.vim/myhelp/8.vim
 
 
 
@@ -30,6 +34,10 @@ let g:which_key_map[1] = {
     \ '2' : g:help_2 ,
     \ '3' : g:help_3 ,
     \ '4' : g:help_4 ,
+    \ '5' : g:help_5 ,
+    \ '6' : g:help_6 ,
+    \ '7' : g:help_7 ,
+    \ '8' : g:help_8 ,
     \ }
 
 " MarkDown

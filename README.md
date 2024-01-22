@@ -23,7 +23,7 @@ pkg update && pkg upgrade
 #### 安装软件
 
 ```sh
-pkg install git vim python nodejs yarn -y
+pkg install git vim python vim-python nodejs yarn -y
 ```
 
 #### 下载VIM插件管理器Plug
@@ -49,7 +49,8 @@ cp -r ~/config/.vim/myhelp ~/.vim && cp ~/config/.vim/vimrc ~/.vim && cp -r ~/co
 ```sh
 pkg install python-numpy python-pillow opencv-python -y
 
-pip install black jedi
 ```
 
-
+```sh
+pip install black jedi
+```

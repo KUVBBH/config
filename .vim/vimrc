@@ -275,7 +275,7 @@ inoreabbrev <expr> __
 let g:instant_markdown_slow = 0
 
 " 是否在 Vim 启动时自动启动 Markdown 实时预览，设为 0（不自动启动），设为 1 则自动启动。
-let g:instant_markdown_autostart = 1
+let g:instant_markdown_autostart = 0
 
 " 是否启用 MathJax 支持 LaTeX 公式渲染，设为 1（启用）。
 let g:instant_markdown_mathjax = 1
@@ -478,14 +478,16 @@ let &t_EI.="\e[2 q" "EI = NORMAL mode (ELSE)
 " ===按键映射
 " ===
 
-" 按键映射,执行Python程序
-map <LEADER>r :call CompileRunPy()<CR>
-func! CompileRunPy()
+" 按键映射,执行Python,MarkDown
+map <LEADER>r :call CompileRun()<CR>
+func! CompileRun()
 	exec "w"
 	if &filetype == 'sh'
-		:!time bash %
+		exec "!time bash %"
 	elseif &filetype == 'python'
 		exec "!clear && python %"
+	elseif &filetype == 'markdown'
+		exec "InstantMarkdownPreview"
 	endif
 endfunc
 

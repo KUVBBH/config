@@ -40,14 +40,18 @@ git clone https://github.com/KUVBBH/config.git
 
 #### VIM配置文件
 
-```
-cp -r config/.vim ./
+```sh
+cd ~
+
+cp -r ~/config/.vim/myhelp ~/.vim
+
+cp ~/config/vimrc ~/.vim
 ```
 
 #### Termux键盘自定义配置文件
 
 ```sh
-cp -r config/.termux ./
+cp -r ~/config/.termux ~
 ```
 
 #### 安装一些Python包

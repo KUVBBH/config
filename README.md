@@ -45,7 +45,7 @@ cd ~ && git clone https://github.com/KUVBBH/config.git
 #### VIM配置文件,Termux键盘设置
 
 ```sh
-cp -r ~/config/.vim/myhelp ~/.vim && cp ~/config/.vim/vimrc ~/.vim && cp -r ~/config/.termux ~
+cp -r ~/config/.vim/myhelp ~/.vim && cp -r ~/config/.vim/myvimrc ~/.vim && cp ~/config/.vim/vimrc ~/.vim && cp -r ~/config/.termux ~
 ```
 
 #### 安装一些Python包

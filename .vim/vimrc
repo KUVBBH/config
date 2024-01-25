@@ -172,16 +172,16 @@ source ~/.vim/myvimrc/KeyMap.vim
 source ~/.vim/myvimrc/MyWhichKey.vim
 
 " ===jedi-vim
-autocmd Filetype python source ~/.vim/myvimrc/MyJedi.vim
+source ~/.vim/myvimrc/MyJedi.vim
 
 " ===vim-table-mode
 source ~/.vim/myvimrc/MyTableMmode.vim
 
 " ===MarkDown for vim-instant-markdown
-autocmd Filetype markdown source ~/.vim/myvimrc/InstantMarkdown.vim
+source ~/.vim/myvimrc/InstantMarkdown.vim
 
 " ===Markdown Preview for (Neo)vim
-" autocmd Filetype markdown source ~/.vim/myvimrc/MarkdownPreview.vim
+" source ~/.vim/myvimrc/MarkdownPreview.vim
 
 " ===vim-airline
 source ~/.vim/myvimrc/MyAirline.vim

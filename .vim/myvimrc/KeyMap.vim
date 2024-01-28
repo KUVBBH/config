@@ -72,9 +72,12 @@ func! CompileRun()
 		exec "!clear && python %"
 	elseif &filetype == 'markdown'
 		exec "InstantMarkdownPreview"
+	elseif &filetype == 'html'
+		exec "!python ~/.vim/mypy/HttpServer.py"
 	endif
 endfunc
 
+autocmd Filetype html map <LEADER>R :!python ~/.vim/mypy/HttpServer.py 1<CR>
 
 " 按键映射,Termux获取粘贴板
 " map <LEADER>p :read !termux-clipboard-get<CR>

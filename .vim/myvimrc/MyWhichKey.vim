@@ -1,12 +1,12 @@
-source ~/.vim/myhelp/0.vim
-source ~/.vim/myhelp/1.vim
-source ~/.vim/myhelp/2.vim
-source ~/.vim/myhelp/3.vim
-source ~/.vim/myhelp/4.vim
-source ~/.vim/myhelp/5.vim
-source ~/.vim/myhelp/6.vim
-source ~/.vim/myhelp/7.vim
-source ~/.vim/myhelp/8.vim
+source ~/.vim/config/.vim/myhelp/0.vim
+source ~/.vim/config/.vim/myhelp/1.vim
+source ~/.vim/config/.vim/myhelp/2.vim
+source ~/.vim/config/.vim/myhelp/3.vim
+source ~/.vim/config/.vim/myhelp/4.vim
+source ~/.vim/config/.vim/myhelp/5.vim
+source ~/.vim/config/.vim/myhelp/6.vim
+source ~/.vim/config/.vim/myhelp/7.vim
+source ~/.vim/config/.vim/myhelp/8.vim
 
 
 
@@ -41,12 +41,12 @@ let g:which_key_map[1] = {
     \ }
 
 " MarkDown
-autocmd FileType markdown source ~/.vim/myhelp/markdown.vim
+autocmd FileType markdown source ~/.vim/config/.vim/myhelp/markdown.vim
 autocmd FileType markdown let g:which_key_map[2]=g:help_md_1
 autocmd FileType markdown let g:which_key_map[3]=g:help_md_2
 
 " Python
-autocmd FileType python source ~/.vim/myhelp/python.vim
+autocmd FileType python source ~/.vim/config/.vim/myhelp/python.vim
 autocmd FileType python let g:which_key_map[2]=g:help_python
 
 

@@ -159,7 +159,7 @@ command! -nargs=0 Black :w | !python -m black %
 " ===
 " ===按键映射
 " ===
-source ~/.vim/myvimrc/KeyMap.vim
+source ~/.vim/config/.vim/myvimrc/KeyMap.vim
 
 
 
@@ -169,22 +169,22 @@ source ~/.vim/myvimrc/KeyMap.vim
 " ===
 
 " ===vim-which-key
-source ~/.vim/myvimrc/MyWhichKey.vim
+source ~/.vim/config/.vim/myvimrc/MyWhichKey.vim
 
 " ===jedi-vim
-source ~/.vim/myvimrc/MyJedi.vim
+source ~/.vim/config/.vim/myvimrc/MyJedi.vim
 
 " ===vim-table-mode
-source ~/.vim/myvimrc/MyTableMmode.vim
+source ~/.vim/config/.vim/myvimrc/MyTableMmode.vim
 
 " ===MarkDown for vim-instant-markdown
-source ~/.vim/myvimrc/InstantMarkdown.vim
+source ~/.vim/config/.vim/myvimrc/InstantMarkdown.vim
 
 " ===Markdown Preview for (Neo)vim
 " source ~/.vim/myvimrc/MarkdownPreview.vim
 
 " ===vim-airline
-source ~/.vim/myvimrc/MyAirline.vim
+source ~/.vim/config/.vim/myvimrc/MyAirline.vim
 
 
 

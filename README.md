@@ -1,6 +1,6 @@
 # *Termux*初始化配置
 
-Tue Jan 30 01:48:55 CST 2024
+`Tue Jan 30 02:15:42 CST 2024`
 
 <img src="https://github.com/KUVBBH/config/blob/main/.PNG/%E8%AE%BE%E7%BD%AE.jpg" height="100">
 
@@ -41,13 +41,19 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 #### git配置文件
 
 ```sh
-cd ~ && git clone https://github.com/KUVBBH/config.git
+cd ~/.vim && git clone git@github.com:KUVBBH/config.git
 ```
 
-#### VIM配置文件,Termux键盘设置
+#### VIM配置文件
 
 ```sh
-cp -r ~/config/.vim/myhelp ~/.vim && cp -r ~/config/.vim/myvimrc ~/.vim && cp ~/config/.vim/vimrc ~/.vim && cp -r ~/config/.termux ~
+echo "source ~/.vim/config/.vim/vimrc.vim" > ~/.vim/vimrc
+```
+
+#### Termux键盘
+
+```sh
+cp -r ~/.vim/config/.termux ~
 ```
 
 #### 安装一些Python包

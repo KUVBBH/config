@@ -73,13 +73,13 @@ func! CompileRun()
 	elseif &filetype == 'markdown'
 		exec "InstantMarkdownPreview"
 	elseif &filetype == 'html'
-		exec "!python ~/.vim/mypy/HttpServer.py dir $(pwd)"
+		exec "!python ~/.vim/config/.vim/mypy/HttpServer.py dir $(pwd)"
 	endif
 endfunc
 
-autocmd Filetype html map <LEADER>R :!python ~/.vim/mypy/HttpServer.py file $(pwd) %<CR>
+autocmd Filetype html map <LEADER>R :!python ~/.vim/config/.vim/mypy/HttpServer.py file $(pwd) %<CR>
 
-autocmd Filetype html map <LEADER>s :!python ~/.vim/mypy/HttpServer.py stop<CR>
+autocmd Filetype html map <LEADER>s :!python ~/.vim/config/.vim/mypy/HttpServer.py stop<CR>
 
 " 按键映射,Termux获取粘贴板
 " map <LEADER>p :read !termux-clipboard-get<CR>

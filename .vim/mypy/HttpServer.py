@@ -1,5 +1,4 @@
 from os import system
-from os.path import isfile
 from sys import argv
 
 m = argv[1]

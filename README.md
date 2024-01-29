@@ -41,7 +41,11 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 #### git配置文件
 
 ```sh
+# ssh
 cd ~/.vim && git clone git@github.com:KUVBBH/config.git
+
+# https
+cd ~/.vim && git clone https://github.com/KUVBBH/config.git
 ```
 
 #### VIM配置文件

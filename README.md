@@ -1,5 +1,7 @@
 # *Termux*初始化配置
 
+Tue Jan 30 01:48:55 CST 2024
+
 <img src="https://github.com/KUVBBH/config/blob/main/.PNG/%E8%AE%BE%E7%BD%AE.jpg" height="100">
 
 #### 读写权限授权

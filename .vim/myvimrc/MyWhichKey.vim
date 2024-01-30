@@ -49,9 +49,13 @@ autocmd FileType markdown let g:which_key_map[3]=g:help_md_2
 autocmd FileType python source ~/.vim/config/.vim/myhelp/python.vim
 autocmd FileType python let g:which_key_map[2]=g:help_python
 
+" HTML
+autocmd FileType html source ~/.vim/config/.vim/myhelp/html.vim
+autocmd FileType html let g:which_key_map[2]=g:help_html
 
 
 
+    
 " ===
 " ===vim-which-key 按键映射
 " ===

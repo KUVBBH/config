@@ -61,6 +61,9 @@ autocmd Filetype python inoremap `' ''<++><Esc>F'i
 
 autocmd Filetype python inoremap `" ""<++><Esc>F"i
 
+" ===html 按键映射
+
+autocmd Filetype html source ~/.vim/config/.vim/myvimrc/keymap/HtmlKeyMap.vim
 
 " 按键映射,执行bash,Python,MarkDown
 map <LEADER>r :call CompileRun()<CR>

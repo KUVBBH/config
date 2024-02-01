@@ -70,7 +70,9 @@ autocmd Filetype html,css vmap `` <C-Y>,
 
 autocmd Filetype html,css nmap `` <C-Y>,
 
-autocmd Filetype html,css nmap `/ <C-Y>/
+autocmd Filetype html,css imap `/ <C-Y>/
+
+autocmd Filetype html,css imap `# <!--  --><Esc>2F-hi
 
 autocmd Filetype html,css imap `< <C-Y>N
 
@@ -87,6 +89,8 @@ autocmd Filetype html,css imap `A <C-Y>A
 autocmd Filetype html,css imap `j <C-Y>j
 
 autocmd Filetype html,css imap `k <C-Y>k
+
+autocmd Filetype html,css imap `i <C-Y>i
 
 autocmd Filetype html,css imap `m <C-Y>m
 

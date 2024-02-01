@@ -50,8 +50,9 @@ autocmd FileType python source ~/.vim/config/.vim/myhelp/python.vim
 autocmd FileType python let g:which_key_map[2]=g:help_python
 
 " HTML
-autocmd FileType html source ~/.vim/config/.vim/myhelp/html.vim
-autocmd FileType html let g:which_key_map[2]=g:help_html
+autocmd FileType html,css source ~/.vim/config/.vim/myhelp/html.vim
+autocmd FileType html,css let g:which_key_map[2]=g:help_html
+autocmd FileType html,css let g:which_key_map[3]=g:help_emmet
 
 
 

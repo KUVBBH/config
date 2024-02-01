@@ -61,9 +61,29 @@ autocmd Filetype python inoremap `' ''<++><Esc>F'i
 
 autocmd Filetype python inoremap `" ""<++><Esc>F"i
 
-" ===html 按键映射
 
-autocmd Filetype html source ~/.vim/config/.vim/myvimrc/keymap/HtmlKeyMap.vim
+" ===html,css按键映射
+
+autocmd Filetype html,css imap `` <C-Y>,
+
+autocmd Filetype html,css vmap `` <C-Y>,
+
+autocmd Filetype html,css nmap `` <C-Y>,
+
+autocmd Filetype html,css imap `< <C-Y>N
+
+autocmd Filetype html,css imap `> <C-Y>n
+
+autocmd Filetype html,css imap `d <C-Y>d
+
+autocmd Filetype html,css imap `D <C-Y>D
+
+autocmd Filetype html,css imap `# <!--  --><Esc>F!3la
+
+autocmd Filetype html,css imap `o <Esc>o
+
+autocmd Filetype html,css imap `O <Esc>O
+
 
 " 按键映射,执行bash,Python,MarkDown
 map <LEADER>r :call CompileRun()<CR>

@@ -112,19 +112,23 @@ Plug 'yianwillis/vimcdoc'
 " Plug 'tell-k/vim-autopep8'
 
 " MarkDown预览
-Plug 'instant-markdown/vim-instant-markdown', {'for': ['markdown', 'vim-plug'], 'do': 'yarn install'} 
+Plug 'instant-markdown/vim-instant-markdown', {'for': ['markdown'], 'do': 'yarn install'} 
 
 " MarkDown预览
 " Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install','for' :['markdown', 'vim-plug']}
 
 " 制表插件
-Plug 'dhruvasagar/vim-table-mode',{'for': ['markdown', 'vim-plug']}
+Plug 'dhruvasagar/vim-table-mode',{'for': ['markdown']}
 
 " python代码补全
-Plug 'davidhalter/jedi-vim',{'for': ['python', 'vim-plug']}
+Plug 'davidhalter/jedi-vim',{'for': ['python']}
 
 " 按键提示
 Plug 'liuchengxu/vim-which-key'
+
+" html补全
+Plug 'mattn/emmet-vim',{'for': ['html', 'css']}
+
 
 call plug#end()
 

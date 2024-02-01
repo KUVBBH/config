@@ -70,6 +70,8 @@ autocmd Filetype html,css vmap `` <C-Y>,
 
 autocmd Filetype html,css nmap `` <C-Y>,
 
+autocmd Filetype html,css nmap `/ <C-Y>/
+
 autocmd Filetype html,css imap `< <C-Y>N
 
 autocmd Filetype html,css imap `> <C-Y>n
@@ -78,11 +80,23 @@ autocmd Filetype html,css imap `d <C-Y>d
 
 autocmd Filetype html,css imap `D <C-Y>D
 
-autocmd Filetype html,css imap `# <!--  --><Esc>F!3la
+autocmd Filetype html,css imap `a <C-Y>a
+
+autocmd Filetype html,css imap `A <C-Y>A
+
+autocmd Filetype html,css imap `j <C-Y>j
+
+autocmd Filetype html,css imap `k <C-Y>k
+
+autocmd Filetype html,css imap `m <C-Y>m
 
 autocmd Filetype html,css imap `o <Esc>o
 
 autocmd Filetype html,css imap `O <Esc>O
+
+autocmd Filetype html,css imap `u <Esc>uA
+
+autocmd Filetype html,css imap `U <Esc><C-R>A
 
 
 " 按键映射,执行bash,Python,MarkDown

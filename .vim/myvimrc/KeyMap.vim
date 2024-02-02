@@ -6,6 +6,11 @@ autocmd FileType vim inoremap <buffer> `` <Esc>j08la
 autocmd FileType vim inoremap <buffer> `_ <Esc>k08la
 
 
+" ===gitcommit按键映射
+autocmd Filetype gitcommit map <LEADER>d dd:0r !date +"\%Y-\%m-\%d \%H:\%M:\%S"<CR>
+
+
+
 " ===markdown按键映射
 
 autocmd Filetype markdown inoremap `< <Esc>/<++><CR>:nohlsearch<CR>c4l

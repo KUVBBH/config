@@ -7,7 +7,7 @@ autocmd FileType vim inoremap <buffer> `_ <Esc>k08la
 
 
 " ===gitcommit按键映射
-autocmd Filetype gitcommit map <LEADER>d dd:0r !date +"\%Y-\%m-\%d \%H:\%M:\%S"<CR>
+autocmd Filetype gitcommit map <LEADER>d ggdd:0r !date +"\%Y-\%m-\%d \%H:\%M:\%S"<CR>
 
 
 

@@ -190,6 +190,8 @@ source ~/.vim/config/.vim/myvimrc/InstantMarkdown.vim
 " ===vim-airline
 source ~/.vim/config/.vim/myvimrc/MyAirline.vim
 
+" ===emmet
+source ~/.vim/config/.vim/myvimrc/MyEmmet.vim
 
 
 

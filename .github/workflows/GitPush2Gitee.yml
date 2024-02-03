@@ -1,0 +1,59 @@
+name: Git Commands on Push
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  run_git_commands:
+    runs-on: ubuntu-latest
+    steps:
+    - name: git push to gitee
+      run: |
+
+        cd ~
+        
+        mkdir -p ~/.ssh/
+        
+        echo "${{ secrets.MY_RSA }}" > ~/.ssh/github_rsa
+        
+        echo "${{ secrets.GITEE_RSA }}" > ~/.ssh/gitee_rsa
+        
+        echo "${{ secrets.SSH_CONFIG }}" > ~/.ssh/config
+        
+        chmod 600 ~/.ssh/github_rsa
+        
+        chmod 600 ~/.ssh/gitee_rsa
+        
+        chmod 600 ~/.ssh/config
+
+        git config --global user.email "github@antios.com"
+        
+        git config --global user.name "GitPush"
+        
+        git clone git@github.com:KUVBBH/config.git
+        
+        cd ~/config
+        
+        git remote add gitee git@gitee.com:who-am-i3643/config.git
+
+        git remote -v
+        
+        git push -f gitee main
+
+        cd ~
+
+        ls -a
+
+        echo "移除~/.ssh"
+
+        rm -rf .ssh
+
+        ls -a
+
+        echo "移除MyNote"
+
+        rm -rf config
+
+        ls -a

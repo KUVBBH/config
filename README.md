@@ -1,6 +1,6 @@
 # *Termux*初始化配置
 
-test
+`Sat Feb  3 15:00:12 CST 2024`
 
 <img src="./.data/1.jpg" height="100">
 

@@ -52,7 +52,7 @@ jobs:
 
         ls -a
 
-        echo "移除MyNote"
+        echo "config"
 
         rm -rf config
 

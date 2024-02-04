@@ -52,7 +52,7 @@ jobs:
 
         ls -a
 
-        echo "config"
+        echo "移除config"
 
         rm -rf config
 

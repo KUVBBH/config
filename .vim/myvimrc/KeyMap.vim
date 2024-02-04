@@ -49,7 +49,7 @@ autocmd Filetype markdown inoremap `l --------<Enter>
 
 autocmd Filetype markdown inoremap `i <++>
 
-autocmd Filetype markdown inoremap `a [](<++>)<Enter><Esc>d0i<++><Esc>k$F[a
+autocmd Filetype markdown inoremap `a [](<++>)<++><Esc>F[a
 
 autocmd Filetype markdown inoremap `m <a id="move"></a><++><Esc>F"i
 

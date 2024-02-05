@@ -46,6 +46,9 @@ cd ~/.vim && git clone git@github.com:KUVBBH/config.git
 
 # https
 cd ~/.vim && git clone https://github.com/KUVBBH/config.git
+
+#gitee
+cd ~/.vim && git clone https://gitee.com/who-am-i3643/config.git
 ```
 
 #### VIM配置文件

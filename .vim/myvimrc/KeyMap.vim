@@ -51,7 +51,7 @@ autocmd Filetype markdown inoremap `i <++>
 
 autocmd Filetype markdown inoremap `a [](<++>)<++><Esc>F[a
 
-autocmd Filetype markdown inoremap `m <a id="move"></a><++><Esc>F"i
+autocmd Filetype markdown inoremap `m <span id="move"></span><++><Esc>F"i
 
 
 " ===Python按键映射

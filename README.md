@@ -73,3 +73,5 @@ pkg install python-numpy python-pillow opencv-python -y
 ```sh
 pip install black jedi
 ```
+
+> [".vim/myvimrc/data.json"文件来源](https://github.com/menzi11/BullshitGenerator.git)

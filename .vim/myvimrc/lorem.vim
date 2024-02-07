@@ -1,15 +1,10 @@
-function! GPBT(args=30)
-    let g:GP_ARGS = a:args
+function! GPBT()
     python3 << EOF
 import vim
 from random import randint, choice
 from json import load
 from os.path import expanduser
-
-GP_ARGS = vim.eval("g:GP_ARGS").split()
-GP_LEN = GP_ARGS[0]
-GP_LEN = int(GP_LEN) if GP_LEN.isdigit() else 30
-GP_LEN = 10000 if GP_LEN > 10000 else GP_LEN
+from re import search,finditer
 
 with open(
     expanduser("~/.vim/config/.vim/myvimrc/data.json"),
@@ -21,13 +16,9 @@ a = data["famous"]
 b = data["before"]
 c = data["after"]
 d = data["bosh"]
+f = choice(["世界", "宇宙", "和平", "童话", "魔法", "科技"])
 
-if len(GP_ARGS) == 2 :
-    f = GP_ARGS[1].replace(" ", "")
-else :
-    f = choice(["世界", "宇宙", "和平", "童话", "魔法", "科技"])
-
-def lorem():
+def lorem(GP_LEN):
     e = choice(d).replace(" ", "")
     while len(e) < GP_LEN:
         if randint(0, 10) < 2:
@@ -43,12 +34,23 @@ def lorem():
 
 def XiuGai() :
     buf = vim.current.buffer
-    for i in range(len(buf)):
+    # 从头开始
+    startNumber = 0
+    # 从光标所在行
+    # startNumber = vim.current.window.cursor[0] - 1
+    for i in range(startNumber, len(buf)):
         line = buf[i]
-        if 'gpbt' in line :
-            buf[i] = line.replace('gpbt',lorem())
+        find = [v.group() for v in finditer("gpbt\d*", line)]
+        if not len(find) :
+            continue
+        for v in find :
+            L = v[4:]
+            L = 30 if L == "" else int(L)
+            line = line.replace(v,lorem(L))
+        buf[i] = line
 XiuGai()
 EOF
 endfunction
 
-command! -nargs=? Fh :call GPBT(<f-args>)
+command! -nargs=0 GouPiBuTong :call GPBT()
+" command! -nargs=? Fh :call GPBT(<f-args>)

@@ -195,7 +195,8 @@ source ~/.vim/config/.vim/myvimrc/MyEmmet.vim
 
 " 狗屁不通
 autocmd Filetype html source ~/.vim/config/.vim/myvimrc/lorem.vim
-
+autocmd Filetype html imap `g <Esc>:GouPiBuTong<CR>i
+" source ~/.vim/config/.vim/myvimrc/lorem.vim
 
 " ===
 " ===undofile文件修改历史记录

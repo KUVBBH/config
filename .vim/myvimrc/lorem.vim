@@ -1,16 +1,17 @@
-let g:cn_lorem=30
-function! GPBT()
+function! GPBT(arg=30)
+    let g:cn_lorem = a:arg
     python3 << EOF
 import vim
 from random import randint, choice
 from json import load
+from os.path import expanduser
 
 def lorem():
     nn = int(vim.eval("g:cn_lorem"))
-    if nn > 100000:
-        nn = 100000
+    if nn > 10000:
+        nn = 10000
     with open(
-        "/data/data/com.termux/files/home/.vim/config/.vim/myvimrc/data.json",
+        expanduser("~/.vim/config/.vim/myvimrc/data.json"),
         "r",
     ) as f:
         data = load(f)
@@ -45,6 +46,4 @@ xg()
 EOF
 endfunction
 
-command! -nargs=0 Gpbt :call GPBT()
-
-map <LEADER>l :Gpbt<CR>
+command! -nargs=? Fh :call GPBT(<f-args>)

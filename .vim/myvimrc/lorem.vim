@@ -7,6 +7,8 @@ from json import load
 
 def lorem():
     nn = int(vim.eval("g:cn_lorem"))
+    if nn > 100000:
+        nn = 100000
     with open(
         "/data/data/com.termux/files/home/.vim/config/.vim/myvimrc/data.json",
         "r",
@@ -35,12 +37,10 @@ def lorem():
 
 def xg() :
     buf = vim.current.buffer
-    nowLineNumber = vim.current.window.cursor[0] - 1
-    line = buf[nowLineNumber]
-    if 'gpbt' in line :
-        buf[nowLineNumber] = line.replace('gpbt',lorem())
-    else :
-        return
+    for i in range(len(buf)):
+        line = buf[i]
+        if 'gpbt' in line :
+            buf[i] = line.replace('gpbt',lorem())
 xg()
 EOF
 endfunction

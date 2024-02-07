@@ -193,6 +193,8 @@ source ~/.vim/config/.vim/myvimrc/MyAirline.vim
 " ===emmet
 source ~/.vim/config/.vim/myvimrc/MyEmmet.vim
 
+" 狗屁不通
+autocmd Filetype html source ~/.vim/config/.vim/myvimrc/lorem.vim
 
 
 " ===

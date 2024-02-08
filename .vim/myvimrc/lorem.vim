@@ -4,7 +4,7 @@ import vim
 from random import randint, choice
 from json import load
 from os.path import expanduser
-from re import search,finditer
+from re import finditer
 
 with open(
     expanduser("~/.vim/config/.vim/myvimrc/data.json"),
@@ -43,10 +43,11 @@ def XiuGai() :
         find = [v.group() for v in finditer("gpbt\d*", line)]
         if not len(find) :
             continue
+            # break
         for v in find :
             L = v[4:]
-            L = 30 if L == "" else int(L)
-            line = line.replace(v,lorem(L))
+            L = 30 if not L else int(L)
+            line = line.replace(v,lorem(L),1)
         buf[i] = line
 XiuGai()
 EOF

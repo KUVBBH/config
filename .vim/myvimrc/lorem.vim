@@ -12,11 +12,16 @@ with open(
 ) as f:
     data = load(f)
 
+with open(
+    expanduser("~/.vim/config/.vim/myvimrc/xiehouyu.json"),
+    "r",
+) as f:
+    f = choice(load(f))["riddle"]
+
 a = data["famous"]
 b = data["before"]
 c = data["after"]
 d = data["bosh"]
-f = choice(["世界", "宇宙", "和平", "童话", "魔法", "科技"])
 
 def lorem(GP_LEN):
     e = choice(d).replace(" ", "")

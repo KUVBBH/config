@@ -73,7 +73,6 @@ pkg install python-numpy python-pillow opencv-python -y
 ```sh
 pip install black jedi
 
-npm install -g js-beautify
 ```
 
 --------

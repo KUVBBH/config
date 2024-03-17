@@ -157,7 +157,8 @@ call plug#end()
 " python black
 command! -nargs=0 Black :w | !python -m black %
 
-
+" python pdb
+autocmd Filetype python command! -nargs=0 PDB :w | below terminal python %
 
 
 " ===

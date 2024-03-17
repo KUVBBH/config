@@ -112,22 +112,19 @@ autocmd Filetype html,css imap `u <Esc>uA
 autocmd Filetype html,css imap `U <Esc><C-R>A
 
 
-" 按键映射,执行bash,Python,MarkDown
-map <LEADER>r :call CompileRun()<CR>
-func! CompileRun()
-	exec "w"
-	if &filetype == 'sh'
-		exec "!time bash %"
-	elseif &filetype == 'python'
-		exec "!clear && python %"
-	elseif &filetype == 'markdown'
-		exec "InstantMarkdownPreview"
-	elseif &filetype == 'html'
-		exec "!python ~/.vim/config/.vim/mypy/HttpServer.py dir $(pwd)"
-	endif
-endfunc
+"Python
+autocmd Filetype python map <LEADER>r :w<CR>:!clear && python %<CR>
 
+autocmd Filetype python map <LEADER>R :w<CR>:below terminal python %<CR>
+
+
+"MarkDown
+autocmd Filetype markdown map <LEADER>r :InstantMarkdownPreview<CR>
+
+" HTML
 autocmd Filetype html map <LEADER>R :!python ~/.vim/config/.vim/mypy/HttpServer.py file $(pwd) %<CR>
+
+autocmd Filetype html map <LEADER>r :!python ~/.vim/config/.vim/mypy/HttpServer.py dir $(pwd) <CR>
 
 autocmd Filetype html map <LEADER>s :!python ~/.vim/config/.vim/mypy/HttpServer.py stop<CR>
 

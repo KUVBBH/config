@@ -56,8 +56,6 @@ autocmd Filetype markdown inoremap `m <span id="move"></span><++><Esc>F"i
 
 " ===Python按键映射
 
-autocmd Filetype python map <LEADER>b :Black<CR>
-
 autocmd Filetype python inoremap `< <Esc>/<++><CR>:nohlsearch<CR>c4l
 
 autocmd Filetype python inoremap `( ()<++><Esc>F(a
@@ -117,6 +115,7 @@ autocmd Filetype python map <LEADER>r :w<CR>:!clear && python %<CR>
 
 autocmd Filetype python map <LEADER>R :w<CR>:below terminal ++rows=5 python %<CR>
 
+autocmd Filetype python map <LEADER>b :w<CR>:!python -m black %<CR>
 
 "MarkDown
 autocmd Filetype markdown map <LEADER>r :InstantMarkdownPreview<CR>

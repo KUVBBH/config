@@ -154,9 +154,6 @@ call plug#end()
 " ===自定义命令
 " ===
 
-" python black
-autocmd Filetype python command! -nargs=0 Black :w | !python -m black %
-
 " python pdb
 " autocmd Filetype python command! -nargs=0 PDB :w | below terminal python %
 

@@ -115,7 +115,7 @@ autocmd Filetype html,css imap `U <Esc><C-R>A
 "Python
 autocmd Filetype python map <LEADER>r :w<CR>:!clear && python %<CR>
 
-autocmd Filetype python map <LEADER>R :w<CR>:below terminal python %<CR>
+autocmd Filetype python map <LEADER>R :w<CR>:below terminal ++rows=5 python %<CR>
 
 
 "MarkDown

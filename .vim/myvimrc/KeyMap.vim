@@ -110,14 +110,17 @@ autocmd Filetype html,css imap `u <Esc>uA
 autocmd Filetype html,css imap `U <Esc><C-R>A
 
 
-"Python
+
+
+" 编程语言快速运行
+" Python
 autocmd Filetype python map <LEADER>r :w<CR>:!clear && python %<CR>
 
-autocmd Filetype python map <LEADER>R :w<CR>:below terminal ++rows=5 python %<CR>
+autocmd Filetype python map <LEADER>R :w<CR>:below terminal ++rows=10 python %<CR>
 
 autocmd Filetype python map <LEADER>b :w<CR>:!python -m black %<CR>
 
-"MarkDown
+" MarkDown
 autocmd Filetype markdown map <LEADER>r :InstantMarkdownPreview<CR>
 
 " HTML
@@ -126,6 +129,9 @@ autocmd Filetype html map <LEADER>R :!python ~/.vim/config/.vim/mypy/HttpServer.
 autocmd Filetype html map <LEADER>r :!python ~/.vim/config/.vim/mypy/HttpServer.py dir $(pwd) <CR>
 
 autocmd Filetype html map <LEADER>s :!python ~/.vim/config/.vim/mypy/HttpServer.py stop<CR>
+
+
+
 
 " 按键映射,Termux获取粘贴板
 " map <LEADER>p :read !termux-clipboard-get<CR>

@@ -1,5 +1,5 @@
 let g:user_emmet_settings = {
-    \  'variables': {'lang': 'en'},
+    \  'variables': {'lang': 'zh-CN'},
     \  'html': {
     \    'default_attributes': {
     \      'option': {'value': v:null},

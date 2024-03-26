@@ -148,3 +148,5 @@ map <LEADER>n :NERDTreeToggle<CR>
 " 按键映射,打开UndotreeToggle
 map <LEADER>u :UndotreeToggle<CR>
 
+" 折叠
+map <LEADER>z :set foldmethod=indent<CR>

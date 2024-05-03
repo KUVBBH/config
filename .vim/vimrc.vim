@@ -1,6 +1,9 @@
 " 关闭兼容模式
 set nocompatible
 
+" 设置真颜色
+set termguicolors
+
 " 开启备份功能
 set backup
 
